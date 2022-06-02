@@ -10,13 +10,16 @@ class  UserSessionInfo extends React.Component {
     }
 
     componentDidMount() {
-        setInterval(() => {
+        this.timerID = setInterval(() => {
             this.setState((state) => {
                 return {
                     count: state.count + 1
                 }
             })
         }, 1000);
+    }
+    componentWillUnmount() {
+        clearInterval(this.timerID);
     }
 
     render() {
